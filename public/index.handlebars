@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>One-page-man</title>
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
+    <!-- Compressed CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles-m.css" type="text/css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">
+                <i class="fa fa-hand-pointer-o"></i>One Page Man</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Guide</a></li>
+                <li><a href="#" id="login">Log in</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- this div will show after 'log in' has been clicked -->
+    <nav id="userLoginDiv" hidden>
+        <div class="nav-wrapper">
+            <div class="row">
+                <form class="col s6">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="email" type="text" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="password" type="text" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div style="display: block">
+        <header class="bgimg">
+            <div class="col s12 header">
+                One Page Man
+            </div>
+        </header>
+    </div>
+    <div class="col s12 feature">
+        <h4>Create your own website by just clicks!</h4>
+        <p>
+            What we do? We can help you to create your website by just simple clicks.
+            Simply choose one of the theme below, then add the things that you would like to display in the website.
+            If you change your mind, just remove it before the confirmation.
+        </p>
+    </div>
+    <div class="photoGroup">
+        <p class="theme">Choose your theme</p>
+        <div class="card-body">
+            <form action="" method="POST" role="form">
+                <!-- <input type="radio" id="mImg"> -->
+                <!-- <label for="img1"> -->
+                    <img class="col s4 images" id="mountain" src="image/mountain1.jpg" alt="mountain">
+                <!-- </label> -->
+                <!-- <input type="radio" id="sImg"> -->
+                <!-- <label for="img2"> -->
+                    <img class="col s4 images" id="sunset" src="image/sunset1.jpg" alt="sunset">
+                <!-- </label> -->
+                <!-- <input type="radio" id="fImg"> -->
+                <!-- <label for="img3"> -->
+                    <img class="col s4 images" id="forest" src="image/forest2.jpg" atl="forest">
+                <!-- </label> -->
+            </form>
+        </div>
+    </div>
+
+    <div class="container" id="webCreateForm">
+        <div class="row" id="formRow">
+            <div class="col m6" id="choiceWindow">
+                <form>
+                    <h6 id="choiceTitle">
+                        Add the things that you would like to display in the website
+                    </h6>
+                    <hr>
+                    <ul>
+                        <li class="userChoice" id="title">
+                            Title
+                            <!-- when the add button clicked, the info will be recored and save to db, and move to right side -->
+                            <button type="submit" class="waves-effect waves-light btn btnList" id="titleBtn">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </li>
+                        <li class="userChoice" id="tagline">
+                            Tagline
+                            <button type="submit" class="waves-effect waves-light btn btnList" id="taglineBtn">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </li>
+                        <li class="userChoice" id="descriptions">
+                            Orgnisation Descriptions
+                            <button type="submit" class="waves-effect waves-light btn btnList" id="descriptionsBtn">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </li>
+                        <li class="userChoice" id="proSer">
+                            Products/services Descriptions
+                            <button type="submit" class="waves-effect waves-light btn btnList" id="proSerBtn">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </li>
+                        <li class="userChoice" id="contact">
+                            Contact details
+                            <button type="submit" class="waves-effect waves-light btn btnList" id="contactBtn">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </li>
+                </form>
+            </div>
+            <div class="col m6" id="confirmWindow">
+                <form id="userForm" class="row">
+                    <div class="input-field col m12">
+                        <input id="websiteName" type="text" class="validate">
+                        <label for="websiteName">Website Name</label>
+                    </div>
+
+                    <ul id="userConfirmTable" class="col m12">
+
+                    </ul>
+                    <ul id="contactDetails">
+
+                    </ul>
+                </form>
+                <div id="submitSection">
+                    <!-- once the confirm button has been clicked, a alert pop up -->
+                    Create the website now
+                    <button type="submit" class="waves-effect waves-light btn btnConfirm">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>One Page Man Copyright &copy; 2020</p>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Compressed JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/index.js"></script>
+    <!-- <script src="assets/javascript/index-page-js.js"></script> -->
+</body>
+
+</html>

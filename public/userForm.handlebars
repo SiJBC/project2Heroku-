@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>website builder</title>
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <style>
+    .hiddenLink {
+      visibility: hidden;
+    } 
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="jumbotron">
+      <hr>
+      <a href= "/dev/{{userId}}" class="btn btn-danger btn-lg" class ="hiddenLink">
+     See website</a>
+    </div>
+    <div class="row">
+
+      <div class="col-lg-12">
+
+        <div class="card">
+          <div class="card-header">
+       website specs
+          </div>
+          <div class="card-body">
+            <form action="" method="POST" role="form">
+
+              <div class="form-group">
+                <label for="">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="The main title of the page">
+              </div>
+
+              <div class="form-group">
+                <label for="">Tagline</label>
+                <input type="text" class="form-control" id="tagline" placeholder="The slogan">
+              </div>
+
+              <div class="form-group">
+                <label for="">Header Image</label>
+                <input type="" class="form-control" id="headerImg" placeholder="block1head">
+              </div>
+
+              <div class="form-group">
+                <label for="">Left Card Image</label>
+                <input type="" class="form-control" id="block1Img" placeholder="">
+              </div>
+
+              <div class="form-group">
+                <label for="">Left Card Headline</label>
+                <input type="text" class="form-control" id="block1head" placeholder="A feature">
+              </div>
+
+              <div class="form-group">
+                <label for="">Left Card Text</label>
+                <input type="text" class="form-control" id="block1text" placeholder="Important information">
+              </div>
+
+              <div class="form-group">
+                <label for="">Middle Card Image</label>
+                <input type="" class="form-control" id="block2Img" placeholder="100">
+              </div>
+
+              <div class="form-group">
+                <label for="">Middle Card Headline</label>
+                <input type="text" class="form-control" id="block2head" placeholder="Another feature">
+              </div>
+
+              <div class="form-group">
+                <label for="">Middle Card Text</label>
+                <input type="text" class="form-control" id="block2text" placeholder="Interesting information">
+              </div>
+
+              <div class="form-group">
+                <label for="">Right Card Image</label>
+                <input type="" class="form-control" id="block3Img" placeholder="100">
+              </div>
+
+              <div class="form-group">
+                <label for="">Right Card Headline</label>
+                <input type="text" class="form-control" id="block3head" placeholder="Side-note">
+              </div>
+
+              <div class="form-group">
+                <label for="">Right Card Text</label>
+                <input type="text" class="form-control" id="block3text" placeholder="Engaging information">
+              </div>
+
+              <div class="form-group">
+                <label for="">E-mail</label>
+                <input type="text" class="form-control" id="eMail" placeholder="Your E-mail">
+              </div>
+
+              <div class="form-group">
+                <label for="">Location</label>
+                <input type="text" class="form-control" id="placeLocation" placeholder="The location">
+              </div>
+
+            </form>
+            <br>
+            <div class="text-right">
+              <button type="submit" class="btn btn-primary btn-md" id="add-btn">
+                </span> Build</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="js/form.js" type="text/javascript"></script>
+
+</body>
+
+</html>
