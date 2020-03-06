@@ -10,7 +10,7 @@ bodyParser = require("body-parser");
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = process.env.PORT || 8000;
+var PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
 var db = require("./models");
@@ -45,8 +45,7 @@ app.set("view engine", "handlebars");
 // =============================================================
 cloudinary.config({ 
   cloud_name: 'onepageman', 
-  api_key: '795943177824595', 
-  api_secret: 'S82d6zuIBvVTzAGPdWIeSt4hHBY' 
+
 });
 
 // Syncing our sequelize models and then starting our Express app

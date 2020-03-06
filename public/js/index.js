@@ -3,6 +3,7 @@ var block1img = "";
 var block2img = "";
 var block3img = "";
 var titleAdd = false, taglineAdd = false, block1HeadAdd = false, block2HeadAdd = false, block3HeadAdd = false, block1TextAdd = false, block2TextAdd = false, block3TextAdd = false, eMailAdd = false, phoneAdd = false, placeLocationAdd = false;
+var themeImage = [];
 
 $(document).ready(function () {
     $(".websiteLink").hide();
@@ -12,7 +13,7 @@ $(document).ready(function () {
 
     //click to show login section and user choice section
     function userLogin() {
-        $("#login").click(function () {
+        $("#login").click(function (event) {
             event.preventDefault();
             console.log("clicked");
             if (checker == false) {
@@ -28,11 +29,30 @@ $(document).ready(function () {
     }
     userLogin();
 
+    //===========================================================================================
+    // SELECT THEME
+    //===========================================================================================
 
-
-    //=======================================================
+    function selectTheme() {
+        $(".images").click(function (event) {
+            event.preventDefault();
+            console.log("Theme Clicked");
+            console.log("id: " + $(this).attr("id"));
+            if ($(this).attr("id") === "mountain") {
+                theme = "mountain";
+            }
+            else if ($(this).attr("id") === "sunset") {
+                theme = "sunset";
+            }
+            else if ($(this).attr("id") === "forest") {
+                theme = "forest";
+            }
+        });
+    }
+    selectTheme();
+    //===========================================================================================
     // IMAGE UPLOADS
-    //=======================================================
+    //===========================================================================================
 
     // Each widget maps to a button on the html page.
     // It returns the URL of the stored image, in the variables defined at the top of this page.
@@ -53,10 +73,7 @@ $(document).ready(function () {
             //console.log("status: " + result.info.files[0].status);
             console.log("URL" + JSON.stringify(result.info.url));
             headerimg = result.info.url;
-
         }
-
-
     });
 
     $('#upload_widget_block1').cloudinary_upload_widget({
@@ -74,7 +91,6 @@ $(document).ready(function () {
             console.log("result---------------------- " + JSON.stringify(result.info.url));
             block1img = result.info.url;
         }
-
     });
 
     $('#upload_widget_block2').cloudinary_upload_widget({
@@ -92,7 +108,6 @@ $(document).ready(function () {
             console.log("result---------------------- " + JSON.stringify(result.info.url));
             block2img = result.info.url;
         }
-
     });
 
     $('#upload_widget_block3').cloudinary_upload_widget({
@@ -109,10 +124,7 @@ $(document).ready(function () {
             //console.log("status: " + result.info.files[0].status);
             console.log("result---------------------- " + JSON.stringify(result.info.url));
             block3img = result.info.url;
-
         }
-
-
     });
 
     //====================================================================================================
@@ -120,15 +132,10 @@ $(document).ready(function () {
     // each click calls the createList() function 
     //====================================================================================================
 
-
-
     function userChoices() {
-        $(".btnList").click(function () {
+        $(".btnList").click(function (event) {
             event.preventDefault();
-            // console.log("add");
             var parentId = $(this).parent().attr("id");
-            // if the "title" clicked, add to the right-
-            // -and with one box to fill in the title
             console.log("btnlist pressed");
             if (parentId == "title") {
                 console.log("title to add");
@@ -138,7 +145,6 @@ $(document).ready(function () {
                 createList(labelFor, textFor);
                 $("#titleBtn").attr("disabled", true);
 
-                // if "Tagline" add a space to fill in tag line
             } else if (parentId == "tagline") {
                 console.log("tagline to add");
                 taglineAdd = true;
@@ -147,7 +153,6 @@ $(document).ready(function () {
                 createList(labelFor, textFor);
                 $("#taglineBtn").attr("disabled", true);
 
-                // if "descreption" add textarea to the right
             } else if (parentId == "block1Head") {
                 console.log("block1head to add");
                 block1HeadAdd = true;
@@ -155,7 +160,6 @@ $(document).ready(function () {
                 var textFor = "Sub-heading";
                 createList(labelFor, textFor);
                 $("#block1HeadBtn").attr("disabled", true);
-
 
             } else if (parentId == "block1Text") {
                 console.log("block1Text to add");
@@ -173,7 +177,6 @@ $(document).ready(function () {
                 createList(labelFor, textFor);
                 $("#block2HeadBtn").attr("disabled", true);
 
-
             } else if (parentId == "block2Text") {
                 console.log("block2text to add");
                 block2TextAdd = true;
@@ -189,7 +192,6 @@ $(document).ready(function () {
                 var textFor = "Sub-heading";
                 createList(labelFor, textFor);
                 $("#block3HeadBtn").attr("disabled", true);
-
 
             } else if (parentId == "block3Text") {
                 console.log("block3text to add");
@@ -222,21 +224,14 @@ $(document).ready(function () {
                 var textFor = "Location"
                 createList(labelFor, textFor);
                 $("#placeLocationBtn").attr("disabled", true);
-                // if "contact details" add basic information, like phone, address and email
-                // } else if (parentId == "contact") {
-                //     console.log("contact to add");
-                //     var labelFor = "contact";
-                //     proSevContact(labelFor);
-                //     $("#contactBtn").attr("disabled", true);
 
-                // };
             };
         });
     }
     userChoices();
 
     //=================================================================================================================
-    // CreateList - this populates the box on the right, that allows users to enter input
+    // CreateList - this populates the box on the right based on btn clicks in userChoices, that allows users to enter input
     //=================================================================================================================
 
 
@@ -248,55 +243,51 @@ $(document).ready(function () {
         var createBtn = $("<button>").addClass("col s2 waves-effect waves-light btn btnDelete");
         var createMinus = $("<i>").addClass("fa fa-minus");
 
-        //loop to create id
-        for (var c = 0; c < createLi.length; c++) {
-            var idNum = c;
-        }
-
         if (labelFor == "titleName") {
             var createInput = $("<input>").attr("type", "text").attr("id", "titleInput").attr("name", "titleInput");
             createBtn.attr("id", "titleBtnDel")
-            // createLi.attr("id", "titleInput");
+
         } else if (labelFor == "tagLineName") {
             var createInput = $("<input>").attr("type", "text").attr("id", "taglineInput").attr("name", "taglineInput");
             createBtn.attr("id", "tagBtnDel")
-            // createLi.attr("id", "taglineInput");
+
         } else if (labelFor == "block1Head") {
             var createInput = $("<input>").attr("type", "text").attr("id", "block1HeadInput").attr("name", "block1HeadInput");
             createBtn.attr("id", "block1HeadBtnDel")
-            // createLi.attr("id", "block1HeadInput");
+
         } else if (labelFor == "block1text") {
             var createInput = $("<input>").attr("type", "text").attr("id", "block1textInput").attr("name", "block1textInput");
             createBtn.attr("id", "block1TextBtnDel")
-            // createLi.attr("id", "block1textInput");
+
         } else if (labelFor == "block2Head") {
             var createInput = $("<input>").attr("type", "text").attr("id", "block2HeadInput").attr("name", "block2HeadInput");
             createBtn.attr("id", "block2HeadBtnDel")
-            // createLi.attr("id", "block2HeadInput");
+
         } else if (labelFor == "block2text") {
             var createInput = $("<input>").attr("type", "text").attr("id", "block2textInput").attr("name", "block2textInput");
             createBtn.attr("id", "block2TextBtnDel")
-            // createLi.attr("id", "block2textInput");
+
         } else if (labelFor == "block3Head") {
             var createInput = $("<input>").attr("type", "text").attr("id", "block3HeadInput").attr("name", "block3HeadInput");
             createBtn.attr("id", "block3HeadBtnDel")
-            // createLi.attr("id", "block3HeadInput");
+
         } else if (labelFor == "block3text") {
             var createInput = $("<input>").attr("type", "text").attr("id", "block3textInput").attr("name", "block3textInput");
             createBtn.attr("id", "block3TextBtnDel")
-            // createLi.attr("id", "block3textInput");
+
         } else if (labelFor == "eMail") {
             var createInput = $("<input>").attr("type", "text").attr("id", "eMailInput").attr("name", "eMailInput");
             createBtn.attr("id", "eMailBtnDel")
+
         } else if (labelFor == "phone") {
             var createInput = $("<input>"
             ).attr("type", "text").attr("id", "phoneInput").attr("name", "phoneInput");
             createBtn.attr("id", "phoneBtnDel")
+
         } else if (labelFor == "placeLocation") {
             var createInput = $("<input>"
             ).attr("type", "text").attr("id", "placeLocationInput").attr("name", "placeLocationInput");
             createBtn.attr("id", "placeLocationBtnDel")
-
         };
 
         createBtn.append(createMinus);
@@ -310,126 +301,10 @@ $(document).ready(function () {
         var btnRemove = ".btnDelete";
         removeDiv(btnRemove);
     };
+    //=================================================================================================================
+    // This adds functionality to the remove button in the inputs on the right-hand side.
+    //=================================================================================================================
 
-    //user choose to add product/service or contact details
-    function proSevContact(labelFor) {
-        //create input and textarea
-        var userForm = $("#contactDetails");
-        var createLi = $("<li>").addClass("col s12 userConfirmList");
-        // create two buttons for proSev
-        var createBtnOne = $("<button>").addClass("waves-effect waves-light btn btnDown");
-        var createBtnTwo = $("<button>").addClass("waves-effect waves-light btn btnRemove");
-        var iconPlusOne = $("<i>").addClass("fa fa-plus");
-        // create plus button for contect
-        var pDiv = $("<p>").addClass("col s10");
-        var createBtnThree = $("<button>").addClass("waves-effect waves-light btn btnPlus");
-        var iconPlus = $("<i>").addClass("fa fa-plus");
-
-        if (labelFor == "proSev") {
-            for (var b = 0; b < createBtnOne.length; b++) {
-                var c = b + 1;
-                createBtnOne.attr("id", c);
-                iconPlusOne.attr("id", c);
-            };
-
-            createLi.attr("id", "proSevLi" + b);
-            createLi.text("Enter information for the product/service");
-            createBtnOne.append(iconPlusOne);
-            createBtnTwo.attr("id", "proSevDel");
-            createBtnTwo.text("Remove");
-            createLi.append(createBtnOne);
-            createLi.append(createBtnTwo);
-
-            //new div created append into the existing div in html #contactDetails
-            $("#contactDetails").click(addContact);
-
-            function addContact() {
-                event.preventDefault();
-                if (event.target.matches("button") || event.target.matches("i")) {
-                    var proSevId = event.target.id;
-                    // console.log(proSevId);
-                    if (proSevId == 1) {
-                        var createDivOne = $("<div>").addClass("input-field");
-                        var createDivTwo = $("<div>").addClass("input-field");
-                        var createInput = $("<input>").attr("type", "text");
-                        var createText = $("<textarea>").addClass("materialize-textarea");
-                        var createLabelTitle = $("<label>").attr("for", labelFor);
-                        var createLabelContent = $("<label>").attr("for", labelFor);
-                        // create file upload div
-                        var createDivThree = $("<div>").addClass("form-group");
-                        var fileInput = $("<input>").attr({ "type": "file", "class": "form-control-file" });
-
-                        createLabelTitle.text("Title");
-                        createLabelContent.text("Content");
-                        createLi.append(createDivOne);
-                        createLi.append(createDivTwo);
-                        createDivOne.append(createInput);
-                        createDivOne.append(createLabelTitle);
-                        createDivTwo.append(createText);
-                        createDivTwo.append(createLabelContent);
-                        createDivThree.append(fileInput);
-                        createLi.append(createDivThree);
-                    }
-                } else {
-                    console.log("Not click button");
-                };
-            };
-
-        } else if (labelFor == "contact") {
-            // create id for each button 
-            for (var a = 0; a < createBtnThree.length; a++) {
-                createBtnThree.attr("id", a);
-                iconPlus.attr("id", a);
-            };
-
-            createLi.attr("id", "contact" + a);
-            pDiv.text("Enter contect details");
-            createLi.append(pDiv);
-            createBtnTwo.attr("id", "contactDel")
-            createBtnTwo.text("Remove");
-            createBtnThree.append(iconPlus);
-            createLi.append(createBtnThree);
-            createLi.append(createBtnTwo);
-
-            //new div created append into the existing div in html #contactDetails
-            $("#contactDetails").click(addContact);
-
-            function addContact() {
-                event.preventDefault();
-                if (event.target.matches("button") || event.target.matches("i")) {
-                    var contactId = event.target.id;
-                    // console.log(contactId);
-                    if (contactId == 0) {
-                        var dropDownUl = $("<select>").addClass("browser-default col s4");
-                        var phoneLi = $("<option>").attr({ "value": "phone" });
-                        var emailLi = $("<option>").attr({ "value": "email" });
-                        var addressLi = $("<option>").attr({ "value": "address" });
-                        var contactDiv = $("<div>").addClass("input-field col s8");
-                        var contactInput = $("<input>").attr("type", "text");
-
-                        phoneLi.text("Phone");
-                        emailLi.text("Email");
-                        addressLi.text("Address");
-                        dropDownUl.append(phoneLi);
-                        dropDownUl.append(emailLi);
-                        dropDownUl.append(addressLi);
-                        createLi.append(dropDownUl);
-                        contactDiv.append(contactInput);
-                        createLi.append(contactDiv);
-                    }
-                } else {
-                    console.log("Not click button");
-                }
-            };
-        };
-
-        userForm.append(createLi);
-
-        var btnRemove = ".btnRemove";
-        removeDiv(btnRemove);
-    };
-
-    //remove btn function in the confirm list
     function removeDiv(btnRemove) {
         $(btnRemove).click(function (event) {
             event.preventDefault();
@@ -501,6 +376,9 @@ $(document).ready(function () {
                 var image = "#forest";
                 show(image);
             };
+            themeImage.splice(0, 1)
+            themeImage.push(imgId);
+            console.log(themeImage);
             // var label = $(this).parent().siblings().attr("id");
             // console.log(label);
         })
@@ -536,7 +414,7 @@ $(document).ready(function () {
         // console.log("e: " + e);
         // console.log("e.textcontent: " + e.textContent);
 
-        var title1 = "null", tagline1 = "null", block1Head1 = "null", block1text1 = "null", block2Head1 = "null", block2text1 = "null", block3Head1 = "null", block3text1 = "null";
+        var title1 = "null", tagline1 = "null", block1Head1 = "null", block1text1 = "null", block2Head1 = "null", block2text1 = "null", block3Head1 = "null", block3text1 = "null", themeChose = "null";
 
 
         if (titleAdd) {
@@ -612,56 +490,32 @@ $(document).ready(function () {
         else {
             placeLocation1 = null;
         }
+        if (themeChose) {
+            theme1 = themeImage[0];
+        } else {
+            theme1 = null;
+        }
 
         console.log("title1: " + title1);
         // make a new website obj
         var newWebsite = {
-            // title
+
             title: title1,
-            //$("#titleInput").val().trim(),
-            // tagline
             tagline: tagline1,
-            //$("#taglineInput")[0].val().trim(),
-            // header image
-            //header_image: headerimg,
-            // header_image: $("#header_image"),
-            // Block 1 Image
-            //block_1_image: block1img,
-            // block_1_image: $("#block_1_image"),
-            // block 1 header
+            header_image: headerimg,
+            block_1_image: block1img,
             block_1_head: block1Head1,
-            //$("#block1headInput").val().trim(),
-            // block 1 text
             block_1_text: block1text1,
-            //$("#block1textInput").val().trim(),
-            // block 2 image
-            //block_2_image: block2img,
-            // block_2_image: $("#block_2_image"),
-            // block 2 header
+            block_2_image: block2img,
             block_2_head: block2Head1,
-            //$("#block2headInput").val().trim(),
-            // block 2 text
             block_2_text: block2text1,
-            //$("#block2textInput").val().trim(),
-            // block 3 image
-            //block_3_image: block3img,
-            // block_3_image: $("#block_3_image"),
-            // block 3 header
+            block_3_image: block3img,
             block_3_head: block3Head1,
-            //$("#block3headInput").val().trim(),
-            // block 3 text
             block_3_text: block3text1,
-
             e_mail: eMail1,
-
             phone: phone1,
-
-            place_location: placeLocation1
-            //$("#block3textInput").val().trim(),
-            // E-mail
-            //   e_mail: $("#eMail").val().trim(),
-            //   // Location
-            //   place_location: $("#placeLocation").val().trim()
+            place_location: placeLocation1,
+            theme: theme1
         };
         console.log(newWebsite)
 
@@ -676,12 +530,23 @@ $(document).ready(function () {
                 alert("generating website...");
 
                 // Use jQuery.update link
+                $("#submitSection").hide()
+                $(".hideOnConfirm").hide()
                 $(".websiteLink").show()
                 $(".websiteLink").attr("href", "/dev/" + data.id)
+                $("p").text("your unique website URL is https://thawing-inlet-42364.herokuapp.com/dev/" + data.id);
+
+                $("#myInput").on("click", function() {
+                    myFunction()
+                })
+
+                function myFunction() {
+                    var copyText = document.getElementById("myInput");
+                    document.execCommand("copy");
+                    alert("Copied the text: " + copyText.value);
+                }
             });
 
         // empty each input box by replacing the value with an empty string
     });
-
-
 });
