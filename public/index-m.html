@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>One-page-man</title>
-
     <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -32,105 +31,110 @@
             </ul>
         </div>
     </nav>
-
-
+    <a class="websiteLink">See Website </a>
     <!-- this div will show after 'log in' has been clicked -->
+    <nav id="userLoginDiv" hidden>
+        <div class="nav-wrapper">
+            <div class="row">
+                <form class="col s6">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="email" type="text" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="password" type="text" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
 
     <div style="display: block">
         <header class="bgimg">
             <div class="col s12 header">
-                <img src="image/onepagemanT.png">
+                One Page Man
             </div>
         </header>
     </div>
-    <div class = "hiddenOnConfirm">
-        <div class="col s12 feature">
-            <h4>Create your own website with just clicks!</h4>
-            <a class="websiteLink">Click here to see Website</a>
-            <p>
-                For a simple yet compelling web presence, simply fill out the form below and we'll build your page. <br>
-                You can upload a header image to catch the eye of visitors, and three smaller images to illustrate your
-                content.<br>
-                Then enter the headers you want, and cut-and-paste any blocks of text, and you're good to go!<br><Br>
-                TOO EASY
-    
-                We can help you to create your website in just a few simple clicks.
-            </p>
-        </div>
+    <div class="col s12 feature">
+        <h4>Create your own website with just clicks!</h4>
+        <p>
+            For a simple yet compelling web presence, simply fill out the form below and we'll build your page. <br>
+            You can upload a header image to catch the eye of visitors, and three smaller images to illustrate your
+            content.<br>
+            Then enter the headers you want, and cut-and-paste any blocks of text, and you're good to go!<br><Br>
+            TOO EASY
+
+            We can help you to create your website in just a few simple clicks.
+        </p>
     </div>
-    
     <div class="photoGroup">
-
-        
- 
-        <div class="hideOnConfirm">
-            <p class="theme">Choose your theme</p>
-            <div class="card-body">
-                <form action="" method="POST" role="form">
-                    <!-- <input type="radio" id="mImg"> -->
-                    <!-- <label for="img1"> -->
-                    <img class="col s4 images" id="mountain" src="image/mountain1.jpg" alt="mountain">
-                    <!-- </label> -->
-                    <!-- <input type="radio" id="sImg"> -->
-                    <!-- <label for="img2"> -->
-                    <img class="col s4 images" id="sunset" src="image/sunset1.jpg" alt="sunset">
-                    <!-- </label> -->
-                    <!-- <input type="radio" id="fImg"> -->
-                    <!-- <label for="img3"> -->
-                    <img class="col s4 images" id="forest" src="image/forest2.jpg" atl="forest">
-                    <!-- </label> -->
-                </form>
-            </div>
+        <p class="theme">Choose your theme</p>
+        <div class="card-body">
+            <form action="" method="POST" role="form">
+                <!-- <input type="radio" id="mImg"> -->
+                <!-- <label for="img1"> -->
+                <img class="col s4 images" id="mountain" src="image/mountain1.jpg" alt="mountain">
+                <!-- </label> -->
+                <!-- <input type="radio" id="sImg"> -->
+                <!-- <label for="img2"> -->
+                <img class="col s4 images" id="sunset" src="image/sunset1.jpg" alt="sunset">
+                <!-- </label> -->
+                <!-- <input type="radio" id="fImg"> -->
+                <!-- <label for="img3"> -->
+                <img class="col s4 images" id="forest" src="image/forest2.jpg" atl="forest">
+                <!-- </label> -->
+            </form>
         </div>
     </div>
-
     <!-- This is where users upload images -->
-    <div class = "hideOnConfirm">
-        <div class="container">
-            <div class="row" class="hideOnConfirm">
-                <div class="col s6" id="imageCol1">
-                    <div class="form-group">
-                        <label for="" style="float:left;">Header Image: <br>The best size is 2000 px wide by 400 px
-                            High</label>
-                        <input type="file" class="form-control image" id="upload_widget_header" name="header_image">
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <label for="" style="float:left;">Left Small Image: <br>The best size is 450px wide by 300px
-                            high</label>
-                        <input type="file" class="form-control image" id="upload_widget_block1" name="header_image">
-    
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col s6" id="imageCol1">
+                <div class="form-group">
+                    <label for="" style="float:left;">Header Image: <br>The best size is 2000 px wide by 400 px
+                        High</label>
+                    <input type="file" class="form-control image" id="upload_widget_header" name="header_image">
                 </div>
-                <div class="col s6" id="imageCol2">
-                    <div class="form-group">
-    
-                        <input type="file" class="form-control image" id="upload_widget_block2" name="header_image">
-                        <label for="" style="float:right;">Middle Small Image: <br>The best size is 450px wide by 300px
-                            high</label>
-    
-                    </div>
-                    <br>
-                    <div class="form-group">
-    
-                        <input type="file" class="form-control image" id="upload_widget_block3" name="header_image">
-                        <label for="" style="float:right;">Right Small Image: <br>The best size is 450px wide by 300px
-                            high</label>
-    
-                    </div>
+                <br>
+                <div class="form-group">
+                    <label for="" style="float:left;">Left Small Image: <br>The best size is 450px wide by 300px
+                        high</label>
+                    <input type="file" class="form-control image" id="upload_widget_block1" name="header_image">
+                    
                 </div>
             </div>
-    </div>
-    
+            <div class="col s6" id="imageCol2">
+                <div class="form-group">
+
+                    <input type="file" class="form-control image" id="upload_widget_block2" name="header_image">
+                    <label for="" style="float:right;">Middle Small Image: <br>The best size is 450px wide by 300px
+                        high</label>
+                    
+                </div>
+                <br>
+                <div class="form-group">
+
+                    <input type="file" class="form-control image" id="upload_widget_block3" name="header_image">
+                    <label for="" style="float:right;">Right Small Image: <br>The best size is 450px wide by 300px
+                        high</label>
+                    
+                </div>
+            </div>
+        </div>
         <!-- This is where the thumbnails of user uploads appear -->
         <div class="row">
             <ul class="cloudinary-thumbnails"></ul>
         </div>
     </div>
-    <div class="container, hideOnConfirm" id="webCreateForm" class="hideOnConfirm">
+
+    <div class="container" id="webCreateForm">
         <div class="row" id="formRow">
             <div class="col m6" id="choiceWindow">
-                <form class="hideOnConfirm">
+                <form>
                     <h6 id="choiceTitle">
                         Add the things that you would like to display in the website
                     </h6>
@@ -235,17 +239,15 @@
                     <!-- once the confirm button has been clicked, a alert pop up -->
                     Create the website now
                     <button type="submit" class="waves-effect waves-light btn btnConfirm">Confirm</button>
+                    <a class="websiteLink">See Website </a>
                 </div>
-
-
 
             </div>
         </div>
     </div>
 
-
     <div class="footer">
-        <h5>One Page Man Copyright &copy; 2020</h5>
+        <p>One Page Man Copyright &copy; 2020</p>
     </div>
     <!-- type="text/javascript"  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
