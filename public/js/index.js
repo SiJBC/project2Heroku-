@@ -3,7 +3,7 @@ var block1img = "";
 var block2img = "";
 var block3img = "";
 var titleAdd = false, taglineAdd = false, block1HeadAdd = false, block2HeadAdd = false, block3HeadAdd = false, block1TextAdd = false, block2TextAdd = false, block3TextAdd = false, eMailAdd = false, phoneAdd = false, placeLocationAdd = false;
-var themeImage = [];
+var themeImage = ["mountain"];
 
 $(document).ready(function () {
     $(".websiteLink").hide();
@@ -47,6 +47,7 @@ $(document).ready(function () {
             else if ($(this).attr("id") === "forest") {
                 theme = "forest";
             }
+
         });
     }
     selectTheme();
@@ -376,6 +377,7 @@ $(document).ready(function () {
                 var image = "#forest";
                 show(image);
             };
+            
             themeImage.splice(0, 1)
             themeImage.push(imgId);
             console.log(themeImage);
