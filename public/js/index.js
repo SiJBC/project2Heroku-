@@ -6,7 +6,9 @@ var titleAdd = false, taglineAdd = false, block1HeadAdd = false, block2HeadAdd =
 var themeImage = ["mountain"];
 
 $(document).ready(function () {
+    // $("#hiddenTextArea").hide()
     $(".websiteLink").hide();
+    $(".hiddenOnLoad").hide()
     $(".dropdown-trigger").dropdown();
     var checker = false;
 
@@ -377,7 +379,7 @@ $(document).ready(function () {
                 var image = "#forest";
                 show(image);
             };
-            
+
             themeImage.splice(0, 1)
             themeImage.push(imgId);
             console.log(themeImage);
@@ -531,12 +533,56 @@ $(document).ready(function () {
                 // tell the user we're adding a character with an alert window
                 alert("generating website...");
                 $(".formHide").hide()
+                $(".fb-share-button").hide()
                 // $("span").text("your unique website URL is https://thawing-inlet-42364.herokuapp.com/dev/" + data.id);
                 // Use jQuery.update link
                 $(".websiteLink").show()
-                $(".websiteLink").attr("href", "https://thawing-inlet-42364.herokuapp.com/dev/" + data.id).text("your unique URL is " + `https://thawing-inlet-42364.herokuapp.com/dev/  ${data.id}`)
+                $(".hiddenOnLoad").show()
+
+                var urlDisplay = document.getElementById("hiddenTextArea")
+                var showUrl = document.createTextNode("https://thawing-inlet-42364.herokuapp.com/dev/" + data.id)
+                // showUrl.setAttribute("id", "copyUrl")
+                urlDisplay.appendChild(showUrl)
+                console.log(showUrl)
+
+
+          
+                $("#copyUrl").on("click", function CopyToClipboard(showUrl) {
+                    if (document.selection) {
+                        var range = document.body.createTextRange();
+                        range.moveToElementText(document.getElementById("hiddenTextArea"));
+                        range.select().createTextRange();
+                        document.execCommand("copy");
+
+                    } else if (window.getSelection) {
+                        var range = document.createRange();
+                        range.selectNode(document.getElementById("hiddenTextArea"));
+                        window.getSelection().addRange(range);
+                        document.execCommand("copy");
+                        alert("text copied, copy in the text-area")
+                    }
+                })
+
+
+
+
+
+
+
+                $(".fb-share-button").removeAttr("data-href")
+                $(".fb-share-button").attr("data-href", "https://thawing-inlet-42364.herokuapp.com/dev/" + data.id)
+
+
+
+
+
+
+
+
+                $(".hiddenText").attr("attribute, value ", "https://thawing-inlet-42364.herokuapp.com/dev/" + data.id)
+                $(".websiteLink").attr("href", "https://thawing-inlet-42364.herokuapp.com/dev/" + data.id)
             });
 
-        // empty each input box by replacing the value with an empty string
+
     });
 });

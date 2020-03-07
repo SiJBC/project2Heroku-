@@ -20,6 +20,7 @@
 </head>
 
 <body>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
     <nav>
         <div class="nav-wrapper">
             <a href="#" class="brand-logo">
@@ -54,11 +55,29 @@
             </div>
         </header>
         <div class = "feature">
-            <a class="websiteLink"> </a>
+        
+             <a class="websiteLink">Visit Your Website </a>  
+            
+                 
+                  <div id = "hiddenTextArea"></div>
             <br>
-            <span></span>
-        </div> 
-    </div>
+            <div id="fb-root"></div>
+   
+    
+            <div class="fb-share-button" data-href = "https://thawing-inlet-42364.herokuapp.com/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fthawing-inlet-42364.herokuapp.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+            <div class = "hiddenOnLoad">
+
+  
+              
+    <br>
+    <br>
+    <button  id = "copyUrl" class="waves-effect waves-light btn-large"> copy URL</button>
+    <a class="waves-effect waves-light btn-large websiteLink"> Visit your website </a>
+            </div> 
+        </div>
+            </div>
+
+ 
     <div class = "formHide">
         <div class="col s12 feature">
             <h4>Create your own website with just clicks!</h4>
