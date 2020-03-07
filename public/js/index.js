@@ -531,10 +531,10 @@ $(document).ready(function () {
                 // tell the user we're adding a character with an alert window
                 alert("generating website...");
                 $(".formHide").hide()
-                $("span").text("your unique website URL is https://thawing-inlet-42364.herokuapp.com/dev/" + data.id);
+                // $("span").text("your unique website URL is https://thawing-inlet-42364.herokuapp.com/dev/" + data.id);
                 // Use jQuery.update link
                 $(".websiteLink").show()
-                $(".websiteLink").attr("href", "/dev/" + data.id)
+                $(".websiteLink").attr("href", "https://thawing-inlet-42364.herokuapp.com/dev/" + data.id).text("your unique URL is " + `https://thawing-inlet-42364.herokuapp.com/dev/  ${data.id}`)
             });
 
         // empty each input box by replacing the value with an empty string
