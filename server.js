@@ -5,11 +5,14 @@
 // *** Dependencies
 // =============================================================
 var express = require("express");
+var compression = require('compression')
 var cloudinary = require('cloudinary').v2;
 bodyParser = require("body-parser");
 // Sets up the Express App
 // =============================================================
 var app = express();
+
+app.use(compression())
 var PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
